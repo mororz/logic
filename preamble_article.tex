@@ -1,0 +1,81 @@
+\usepackage[babelshorthands]{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+
+\defaultfontfeatures{
+	Path = fonts/EB_Garamond/static/,
+	Extension = .ttf,
+	Numbers = Lowercase
+}
+
+\setmainfont{EBGaramond-Regular}[
+	ItalicFont = EBGaramond-Italic,
+	BoldFont = EBGaramond-Bold,
+	BoldItalicFont = EBGaramond-BoldItalic
+]
+
+\usepackage{microtype}
+
+\pagestyle{plain}
+
+\usepackage{xcolor}
+
+\usepackage[all]{nowidow}
+\setnoclub
+\setnowidow
+
+\sloppy
+
+\usepackage{tabu, longtable}
+
+\usepackage{perpage}
+\MakePerPage{footnote}
+
+\usepackage{enumitem}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shapes.geometric, shapes.multipart}
+\usepackage{caption}
+\captionsetup{justification=centering,font={large,bf}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=gray
+}
+
+\usepackage{titlesec}
+\titleformat{\section}
+{\normalfont\normalsize\bfseries\centering}{}{0pt}{}
+
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newcommand{\signature}[1]{
+  \begin{flushright}
+    \emph{#1}
+  \end{flushright}
+}
+
+
+\usepackage{enotez}
+\setenotez{
+	list-name=Примечания,
+	backref=true,
+	totoc=section
+}
+
+\DeclareInstance{enotez-list}{custom}{paragraph}{
+	format = \normalfont
+      }
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

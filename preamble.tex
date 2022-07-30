@@ -1,0 +1,101 @@
+% \makepagestyle{mystyle}
+% \makeevenhead{mystyle}{}{}{}
+% \makeoddhead{mystyle}{}{}{}
+% \makeevenfoot{mystyle}{\quad\quad\thepage}{}{}
+% \makeoddfoot{mystyle}{}{}{\thepage\quad\quad}
+
+% \pagestyle{mystyle}
+
+% \setsecnumdepth{none}
+
+% \settrims{0pt}{0pt}
+% \medievalpage
+% \checkandfixthelayout
+
+\usepackage[babelshorthands]{polyglossia}
+\setmainlanguage[indentfirst=false]{russian}
+\setotherlanguage{english}
+\setlanghyphenmins{russian}{2}{3}
+
+\usepackage{fontspec}
+
+\defaultfontfeatures{
+	Path = fonts/Alegreya/static/,
+	Extension = .ttf,
+	Numbers = Lowercase
+}
+
+\setmainfont{Alegreya-Regular}[
+	ItalicFont = Alegreya-Italic,
+	BoldFont = Alegreya-Bold,
+	BoldItalicFont = Alegreya-BoldItalic
+]
+
+\defaultfontfeatures{
+	Path = fonts/Alegreya_Sans/,
+	Extension = .ttf,
+	Numbers = Lowercase
+}
+
+\setsansfont{AlegreyaSans-Regular}[
+	ItalicFont = AlegreyaSans-Italic,
+	BoldFont = AlegreyaSans-Bold,
+	BoldItalicFont = AlegreyaSans-BoldItalic
+]
+
+% \makechapterstyle{mychapterstyle}{
+% 	\chapterstyle{default}
+% 	\setlength\beforechapskip{-\baselineskip}
+% 	\setlength\afterchapskip{220pt}
+% 	\renewcommand{\chaptitlefont}{
+% 		\huge\scshape\MakeTextLowercase
+% 	}
+% }
+
+% \chapterstyle{mychapterstyle}
+% \aliaspagestyle{chapter}{mystyle}
+
+% \makechapterstyle{mytocstyle}{
+% 	\chapterstyle{default}
+% 	\setlength\beforechapskip{-\baselineskip}
+% 	\renewcommand{\chaptitlefont}{
+% 		\huge\scshape\MakeTextLowercase
+% 	}
+% }
+
+% \setsecheadstyle{\scshape\Large\MakeTextLowercase}
+
+\usepackage{pifont}
+
+\newcommand{\customdelim}{%
+	\begin{center}
+		\Large 
+		\ding{167}
+	\end{center}}
+
+\usepackage{microtype}
+%\tolerance = 5000
+\midsloppy
+
+\usepackage[all]{nowidow}
+\setnoclub
+\setnowidow
+
+\usepackage{enotez}
+\setenotez{
+	list-name=Примечания,
+	backref=true,
+	totoc=chapter
+}
+
+\DeclareInstance{enotez-list}{custom}{paragraph}{
+	format = \normalfont
+}
+
+% \settocdepth{chapter}
+% \renewcommand{\cftdot}{}
+% \renewcommand{\cftchapterfont}{\scshape\MakeTextLowercase}
+% \renewcommand{\cftchapterpagefont}{\scshape}
+% \renewcommand{\cftchapterleader}{}
+% \renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+% \setrmarg{3.55em plus 1fil}

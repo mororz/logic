@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Language %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[babelshorthands]{polyglossia}
+\setmainlanguage[indentfirst=false]{russian}
+\setotherlanguage{german}
+\setlanghyphenmins{russian}{2}{3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Geometry %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setstocksize{297mm}{210mm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settypeblocksize{52pc}{28pc}{*}
+\setlrmargins{11pc}{*}{*}
+\setulmargins{7pc}{*}{*}
+\checkandfixthelayout
+
+\makepagestyle{mystyle}
+\makeevenhead{mystyle}{}{}{}
+\makeoddhead{mystyle}{}{}{}
+\makeevenfoot{mystyle}{\thepage}{}{}
+\makeoddfoot{mystyle}{}{}{\thepage}
+
+\pagestyle{mystyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% Font %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fontspec}
+
+\defaultfontfeatures{
+	Path = fonts/EB_Garamond/static/,
+	Extension = .ttf,
+	Numbers = Lowercase
+}
+
+\setmainfont{EBGaramond-Regular}[
+	ItalicFont = EBGaramond-Italic,
+	BoldFont = EBGaramond-Bold,
+	BoldItalicFont = EBGaramond-BoldItalic
+]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Typography %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\parskip = 0 pt % do not allow empty space between paragraphs
+
+\usepackage{pifont}
+
+\usepackage{microtype}
+%\tolerance = 5000
+\midsloppy
+
+\usepackage[all]{nowidow}
+\setnoclub
+\setnowidow
+
+\usepackage{enotez}
+\setenotez{
+	list-name=Примечания,
+	backref=true,
+	totoc=chapter
+}
+
+\DeclareInstance{enotez-list}{custom}{paragraph}{
+	format = \normalfont
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Custom %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{enumitem} % for lists
+
+\newcommand{\signature}[1]{
+  \begin{flushright}
+    \emph{#1}
+  \end{flushright}
+}
+
+\setsecnumdepth{none} % don't print chapter numbers
+
+\makechapterstyle{mychapterstyle}{
+	\chapterstyle{default}
+	\setlength\beforechapskip{14pc}
+	\setlength\afterchapskip{1pc}
+	\renewcommand{\chaptitlefont}{
+		\bfseries\centering\Large\MakeTextUppercase
+	}
+}
+	
+\chapterstyle{mychapterstyle}
+\aliaspagestyle{chapter}{mystyle}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% TeX-engine: xetex
+%%% End:
